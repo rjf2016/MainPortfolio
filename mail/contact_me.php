@@ -12,6 +12,10 @@ if(empty($_POST['name'])      ||
    }
 
 
+echo "Made it here";
+return true;
+
+
 
 $name = strip_tags(htmlspecialchars($_POST['name']));
 $email_address = strip_tags(htmlspecialchars($_POST['email']));
