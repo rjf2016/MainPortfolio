@@ -26,7 +26,7 @@ $headers .= "Reply-To: $email_address";
 
 //mail($to,$email_subject,$email_body,$headers);
 
-$sendgrid = new SendGrid("SENDGRID_APIKEY");
+$sendgrid = new SendGrid("RSz21wAJTG29kwgxYdM-kA");
 $email    = new SendGrid\Email();
 
 $email->addTo("rickyfahey@hotmail.com")
