@@ -1,10 +1,10 @@
 <?php
 
+
+require "./vendor/sendgrid-php/sendgrid-php.php";
+
 echo "Made it";
 return true;
-
-require "/vendor/sendgrid-php/sendgrid-php.php";
-
 
 
 
