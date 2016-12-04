@@ -1,4 +1,9 @@
 <?php
+
+echo "Made it here";
+return true;
+
+
 require './vendor/autoload.php';
 // Check for empty fields
 if(empty($_POST['name'])      ||
@@ -12,8 +17,6 @@ if(empty($_POST['name'])      ||
    }
 
 
-echo "Made it here";
-return true;
 
 
 
