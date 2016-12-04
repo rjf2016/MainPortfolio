@@ -1,10 +1,8 @@
 <?php
 
-echo "Made it here";
-return true;
 
+require("vendor/sendgrid-php/sendgrid-php.php");
 
-require './vendor/autoload.php';
 // Check for empty fields
 if(empty($_POST['name'])      ||
    empty($_POST['email'])     ||
