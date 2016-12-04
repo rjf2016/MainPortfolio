@@ -1,7 +1,11 @@
 <?php
 
 
-require("https://rickfahey.herokuapp.com/vendor/sendgrid-php/sendgrid-php.php");
+require "/vendor/sendgrid-php/sendgrid-php.php";
+
+echo "Made it";
+return true;
+
 
 // Check for empty fields
 if(empty($_POST['name'])      ||

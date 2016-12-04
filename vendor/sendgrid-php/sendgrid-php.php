@@ -1,3 +1,3 @@
 <?php
-require 'https://rickfahey.herokuapp.com/vendor/autoload.php';
+require 'vendor/autoload.php';
 ?>
