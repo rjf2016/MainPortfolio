@@ -1,7 +1,7 @@
 <?php
 
 
-require("vendor/sendgrid-php/sendgrid-php.php");
+require("./vendor/sendgrid-php/sendgrid-php.php");
 
 // Check for empty fields
 if(empty($_POST['name'])      ||
