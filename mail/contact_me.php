@@ -1,11 +1,7 @@
 <?php
 
 
-require "./vendor/sendgrid-php/sendgrid-php.php";
-
-echo "Made it";
-return true;
-
+require("path/to/sendgrid-php/sendgrid-php.php");
 
 
 // Check for empty fields
