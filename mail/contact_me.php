@@ -1,5 +1,5 @@
 <?php
-require 'autoload.php';
+require("path/to/sendgrid-php/sendgrid-php.php");
 
 
 // Check for empty fields
