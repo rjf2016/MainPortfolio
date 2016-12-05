@@ -1,7 +1,5 @@
 <?php
-
-
-require 'vendor/autoload.php';
+require './vendor/autoload.php';
 
 
 // Check for empty fields
