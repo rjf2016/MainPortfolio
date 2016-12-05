@@ -1,7 +1,7 @@
 test/coverage/*
 dist/
-composer.lock
 vendor
+composer.lock
 .env*
 sendgrid-php.php
 composer.phar
