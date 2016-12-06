@@ -6,13 +6,13 @@ require 'vendor/autoload.php';
 // If you are not using Composer (recommended)
 // require("path/to/sendgrid-php/sendgrid-php.php");
 
-$from = new SendGrid\Email(null, "tjf20@hotmail.com");
+$from = new SendGrid\Email(null, "noreply@rickfahey.heroku.com");
 $subject = "Hello World from the SendGrid PHP Library!";
 $to = new SendGrid\Email(null, "rickyfahey@hotmail.com");
 $content = new SendGrid\Content("text/plain", "Hello, Email!");
 $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
-$apiKey = getenv('SENDGRID_API_KEY');
+//$apiKey = getenv('SENDGRID_API_KEY');
 //$sg = new \SendGrid($apiKey);
 $sg = new \SendGrid("RSz21wAJTG29kwgxYdM-kA");
 
@@ -23,6 +23,8 @@ echo $response->statusCode();
 echo $response->headers();
 echo $response->body();
 
+
+echo "Cool";
 
 /*
 
