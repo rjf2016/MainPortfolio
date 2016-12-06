@@ -3,28 +3,35 @@ require 'vendor/autoload.php';
 
 
 
-// If you are not using Composer (recommended)
-// require("path/to/sendgrid-php/sendgrid-php.php");
+$request_body = json_decode('{
+  "personalizations": [
+    {
+      "to": [
+        {
+          "email": "rickyfahey@hotmail.com"
+        }
+      ],
+      "subject": "Hello World from the SendGrid PHP Library!"
+    }
+  ],
+  "from": {
+    "email": "tjf20@hotmail.com"
+  },
+  "content": [
+    {
+      "type": "text/plain",
+      "value": "Hello, Email!"
+    }
+  ]
+}');
 
-$from = new SendGrid\Email(null, "noreply@rickfahey.heroku.com");
-$subject = "Hello World from the SendGrid PHP Library!";
-$to = new SendGrid\Email(null, "rickyfahey@hotmail.com");
-$content = new SendGrid\Content("text/plain", "Hello, Email!");
-$mail = new SendGrid\Mail($from, $subject, $to, $content);
+$apiKey = getenv('SENDGRID_API_KEY');
+$sg = new \SendGrid($apiKey);
 
-//$apiKey = getenv('SENDGRID_API_KEY');
-//$sg = new \SendGrid($apiKey);
-$sg = new \SendGrid("RSz21wAJTG29kwgxYdM-kA");
-
-
-$response = $sg->client->mail()->send()->post($mail);
-
+$response = $sg->client->mail()->send()->post($request_body);
 echo $response->statusCode();
-echo $response->headers();
 echo $response->body();
-
-
-echo "Cool";
+echo $response->headers();
 
 /*
 
