@@ -1,6 +1,4 @@
 test/coverage/*
 dist/
-vendor
 .env*
-sendgrid-php.php
 composer.phar

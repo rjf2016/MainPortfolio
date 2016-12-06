@@ -1,5 +1,5 @@
 <?php
-require 'autoload.php';
+require 'vendor/autoload.php';
 
 
 // Check for empty fields
@@ -12,9 +12,6 @@ if(empty($_POST['name'])      ||
    echo "No arguments Provided!";
    return false;
    }
-
-
-
 
 
 $name = strip_tags(htmlspecialchars($_POST['name']));
@@ -40,6 +37,11 @@ $email->addTo("rickyfahey@hotmail.com")
       ->setHtml($email_body);
 
 $sendgrid->send($email);
+
+
+
+
+
 
 return true;         
 ?>
