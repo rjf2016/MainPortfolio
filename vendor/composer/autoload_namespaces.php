@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'SendGrid' => array($vendorDir . '/sendgrid/php-http-client/lib'),
+    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
 );
