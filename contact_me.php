@@ -3,15 +3,7 @@ require 'vendor/autoload.php';
 
 
 
-function customError($errno, $errstr) {
-  echo "<b>Error:</b> [$errno] $errstr";
-}
-
-//set error handler
-set_error_handler("customError");
-
-//trigger error
-echo($test);
+return false;
 
 
 
@@ -94,5 +86,5 @@ $sendgrid->send($email);
 
 
 
-//return true;         
+return true;         
 ?>
