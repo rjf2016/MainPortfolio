@@ -1,5 +1,5 @@
 <?php
-require("path/to/sendgrid-php/sendgrid-php.php");
+require("/sendgrid-php/sendgrid-php.php");
 
 
 $request_body = json_decode('{
@@ -24,7 +24,7 @@ $request_body = json_decode('{
   ]
 }');
 
-$apiKey = "RSz21wAJTG29kwgxYdM-kA";  //getenv('SENDGRID_API_KEY');
+$apiKey = getenv('SENDGRID_API_KEY');
 $sg = new \SendGrid($apiKey);
 
 $response = $sg->client->mail()->send()->post($request_body);
