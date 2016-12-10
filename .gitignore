@@ -2,4 +2,4 @@ test/coverage/*
 dist/
 .env*
 composer.phar
-vendor
+
