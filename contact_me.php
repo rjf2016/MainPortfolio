@@ -20,10 +20,10 @@ try {
 
 
     } catch (Exception $e) {
-        echo 'Caught exception: ',  $e->getMessage(), "\n";
-        //file_put_contents("php://stderr", $e->getMessage());
+        //echo 'Caught exception: ',  $e->getMessage(), "\n";
+        file_put_contents("php://stderr", $e->getMessage()+"\n");
     } finally {
-        echo "First finally.\n";
+        file_put_contents("php://stderr", "done\n");
     }
 
 
