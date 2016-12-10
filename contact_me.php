@@ -1,7 +1,5 @@
 <?php
-require 'vendor/autoload.php';
-
-
+require("path/to/sendgrid-php/sendgrid-php.php");
 
 
 $request_body = json_decode('{
