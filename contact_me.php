@@ -2,37 +2,19 @@
 require("sendgrid-php/sendgrid-php.php");
 
 
-$request_body = json_decode('{
-  "personalizations": [
-    {
-      "to": [
-        {
-          "email": "rickyfahey@hotmail.com"
-        }
-      ],
-      "subject": "Hello World from the SendGrid PHP Library!"
-    }
-  ],
-  "from": {
-    "email": "tjf20@hotmail.com"
-  },
-  "content": [
-    {
-      "type": "text/plain",
-      "value": "Hello, Email!"
-    }
-  ]
-}');
+$from = new SendGrid\Email(null, "tjf20@hotmail.com");
+$subject = "Hello World from the SendGrid PHP Library!";
+$to = new SendGrid\Email(null, "rickyfahey@hotmail.com");
+$content = new SendGrid\Content("text/plain", "Hello, Email!");
+$mail = new SendGrid\Mail($from, $subject, $to, $content);
 
 $apiKey = getenv('SENDGRID_API_KEY');
 $sg = new \SendGrid($apiKey);
 
-$response = $sg->client->mail()->send()->post($request_body);
+$response = $sg->client->mail()->send()->post($mail);
 echo $response->statusCode();
-echo $response->body();
 echo $response->headers();
-
-
+echo $response->body();
 
 
 return true;         
