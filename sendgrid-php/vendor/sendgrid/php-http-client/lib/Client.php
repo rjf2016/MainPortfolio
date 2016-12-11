@@ -54,7 +54,7 @@ class Client
 
 
         file_put_contents("php://stderr", "\ncontructing Client!!!\n");
-        file_put_contents("php://stderr", "\nPath = " + $path + "\n");
+        file_put_contents("php://stderr", $path);
        
     }
 
