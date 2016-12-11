@@ -1,6 +1,7 @@
 <?php
 require("sendgrid-php/sendgrid-php.php");
 
+namespace SendGrid;
 
 try {
     /*
@@ -42,7 +43,6 @@ try {
         file_put_contents("php://stderr", $e->getMessage()+"\n");
     } finally {
         file_put_contents("php://stderr", "done\n");
-        file_put_contents("php://stderr", $response->statusCode()+"\n");
     }
 
 
