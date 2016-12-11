@@ -48,7 +48,8 @@ file_put_contents("php://stderr", "Back from Num Rows = \n");
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        file_put_contents("php://stderr", $row["mailMessage"] + "\n");
+        file_put_contents("php://stderr", $row["subject"]);
+        file_put_contents("php://stderr", "\n");
     }
 } else {
     echo "0 results";
