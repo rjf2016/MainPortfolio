@@ -37,11 +37,13 @@ if ($conn->connect_error) {
 file_put_contents("php://stderr", "Connection was successfully established!\n");
 
 
-$sql = "SELECT fromAddress, toAddress, name, phone, subject, CAST(mailmessage AS CHAR(10000) CHARACTER SET utf8) as mailMessage FROM contactTB";
+$sql = "SELECT fromAddress, toAddress, name, phone, subject, CAST(mailMessage AS CHAR(1000) CHARACTER SET utf8) as mailMessage FROM contactTB";
 
 $result = $conn->query($sql);
 
-file_put_contents("php://stderr", "Num Rows = " + $result->num_rows + "\n");
+file_put_contents("php://stderr", "Num Rows = \n");
+file_put_contents("php://stderr",  $result->num_rows);
+file_put_contents("php://stderr", "Back from Num Rows = \n");
 
 if ($result->num_rows > 0) {
     // output data of each row
