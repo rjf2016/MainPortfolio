@@ -1,7 +1,7 @@
 <?php
-require("sendgrid-php/sendgrid-php.php");
-
 namespace SendGrid;
+
+require("sendgrid-php/sendgrid-php.php");
 
 try {
     /*
