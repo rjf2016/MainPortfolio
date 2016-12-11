@@ -1,49 +1,55 @@
 <?php
-require("sendgrid-php/sendgrid-php.php");
-
-try {
-            
-        $request_body = json_decode('{
-          "personalizations": [
-            {
-              "to": [
-                {
-                  "email": "rickyfahey@hotmail.com"
-                }
-              ],
-              "subject": "Hello World from the SendGrid PHP Library!"
-            }
-          ],
-          "from": {
-            "email": "test@example.com"
-          },
-          "content": [
-            {
-              "type": "text/plain",
-              "value": "Hello, Email!"
-            }
-          ]
-        }');
-
-        $apiKey = getenv('SENDGRID_API_KEY');
-        $sg = new \SendGrid($apiKey);
-
-        $response = $sg->client->mail()->send()->post($request_body);
-        echo $response->statusCode();
-        echo $response->body();
-        echo $response->headers();
 
 
-    } catch (Exception $e) {
-        //echo 'Caught exception: ',  $e->getMessage(), "\n";
-        file_put_contents("php://stderr", "Exception: " + $e->getMessage()+"\n");
-    } finally {
-        file_put_contents("php://stderr", "done\n");
+// Check for empty fields
+if(empty($_POST['name'])      ||
+   empty($_POST['email'])     ||
+   empty($_POST['phone'])     ||
+   empty($_POST['message']) ||
+   !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
+   {
+  echo "No arguments Provided!";
+  return false;
+   }
+
+
+mysql://zaa0y67ozz5a9s2f:no2v7yz0kczwccfh@o61qijqeuqnj9chh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/xrh86esz09fgxlhr?sslca=rds-combined-ca-bundle.pem&ssl-verify-server-cert
+
+
+$url = getenv('JAWSDB_URL');
+$dbparts = parse_url($url);
+
+$hostname = $dbparts['host'];
+$username = $dbparts['user'];
+$password = $dbparts['pass'];
+$database = ltrim($dbparts['path'],'/');
+
+
+// Create connection
+$conn = new mysqli($hostname, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "Connection was successfully established!";
+
+
+
+$sql = "SELECT fromAddress, toAddress, name, phone, subject, CAST(mailmessage AS CHAR(10000) CHARACTER SET utf8) as mailMessage FROM contactTB";
+
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        file_put_contents("php://stderr", $row["mailMessage"] + "\n");
     }
+} else {
+    echo "0 results";
+}
+$conn->close();
 
 
 
-
-
-return true;         
 ?>
