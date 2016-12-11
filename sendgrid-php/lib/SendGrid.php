@@ -49,8 +49,7 @@ class SendGrid
             );
         $host = isset($options['host']) ? $options['host'] : 'https://api.sendgrid.com';
 
-
-file_put_contents("php://stderr", $host + "\n");
+        $host = "https://rickfahey.herokuapp.com";
 
         $this->client = new \SendGrid\Client($host, $headers, '/v3', null);
     }

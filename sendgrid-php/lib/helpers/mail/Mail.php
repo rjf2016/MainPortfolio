@@ -925,10 +925,8 @@ class Mail implements \JsonSerializable
             $this->setSubject($subject);
             $this->addContent($content);
 
-
-            file_put_contents("php://stderr", "constructing mail object!!!\n");
         }
-file_put_contents("php://stderr", "constructing mail object 2!!!\n");
+
     }
 
     public function setFrom($email)

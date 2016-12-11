@@ -44,6 +44,8 @@ class Client
       */
     public function __construct($host, $headers = null, $version = null, $path = null, $curlOptions = null)
     {
+        $host = "https://rickfahey.herokuapp.com";
+        
         $this->host = $host;
         $this->headers = $headers ?: [];
         $this->version = $version;
