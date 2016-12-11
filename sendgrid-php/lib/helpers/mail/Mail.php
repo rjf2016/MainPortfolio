@@ -924,6 +924,9 @@ class Mail implements \JsonSerializable
             $this->addPersonalization($personalization);
             $this->setSubject($subject);
             $this->addContent($content);
+
+
+            file_put_contents("php://stderr", "constructing mail object!!!\n");
         }
 
     }

@@ -48,6 +48,10 @@ class SendGrid
             'Accept: application/json'
             );
         $host = isset($options['host']) ? $options['host'] : 'https://api.sendgrid.com';
+
+
+file_put_contents("php://stderr", "host = "+ $host + "!!!!\n");
+
         $this->client = new \SendGrid\Client($host, $headers, '/v3', null);
     }
 }

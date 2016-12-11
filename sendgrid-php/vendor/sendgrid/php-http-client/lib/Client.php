@@ -51,6 +51,9 @@ class Client
         $this->curlOptions = $curlOptions ?: [];
         // These are the supported HTTP verbs
         $this->methods = ['delete', 'get', 'patch', 'post', 'put'];
+
+
+        file_put_contents("php://stderr", "contructing Client!!!\n");
     }
 
     /**
