@@ -1,6 +1,5 @@
 <?php
 
-
 // Check for empty fields
 if(empty($_POST['name'])      ||
    empty($_POST['email'])     ||
@@ -11,19 +10,6 @@ if(empty($_POST['name'])      ||
   echo "No arguments Provided!";
   return false;
    }
-
-
-/*
-file_put_contents("php://stderr", "\n");
-file_put_contents("php://stderr", $_POST['name']);
-file_put_contents("php://stderr", "\n");
-file_put_contents("php://stderr", $_POST['email']);
-file_put_contents("php://stderr", "\n");
-file_put_contents("php://stderr", $_POST['phone']);
-file_put_contents("php://stderr", "\n");
-file_put_contents("php://stderr", $_POST['message']);
-file_put_contents("php://stderr", "\n");
-*/
 
 
 $url = getenv('JAWSDB_URL');
@@ -45,24 +31,20 @@ if ($conn->connect_error) {
 }
 
  
-//file_put_contents("php://stderr", "Connection was successfully established!\n");
-
 $sql = "INSERT INTO contactTB (fromAddress, toAddress, name, phone, mailmessage) values ('" . $_POST['email'] . "', 'rickyfahey@hotmail.com', '" . $_POST['name'] . "', '" . $_POST['phone'] . "', '" . $_POST['message'] . "')";
 
-//$result = $conn->query($sql);
-
 if ($conn->query($sql) === TRUE) {
-    //echo "New record created successfully";
-    file_put_contents("php://stderr", "New record created successfully");
+    file_put_contents("php://stderr", "New record created successfully" . "\n");
+    file_put_contents("php://stderr", $_POST['email'] . "\n");
+    file_put_contents("php://stderr", $_POST['name']  . "\n");
+    file_put_contents("php://stderr", $_POST['phone'] . "\n");
+    file_put_contents("php://stderr", $_POST['message'] . "\n");
 } else {
-    //echo "Error: " . $sql . "<br>" . $conn->error;
     file_put_contents("php://stderr", "Error: " . $conn->error);
 }
 
 
 $conn->close();
 
-//return true;
-
-
+return true;
 ?>
