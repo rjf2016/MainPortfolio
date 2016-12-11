@@ -13,7 +13,7 @@ if(empty($_POST['name'])      ||
    }
 
 
-
+/*
 file_put_contents("php://stderr", "\n");
 file_put_contents("php://stderr", $_POST['name']);
 file_put_contents("php://stderr", "\n");
@@ -23,7 +23,7 @@ file_put_contents("php://stderr", $_POST['phone']);
 file_put_contents("php://stderr", "\n");
 file_put_contents("php://stderr", $_POST['message']);
 file_put_contents("php://stderr", "\n");
-
+*/
 
 
 $url = getenv('JAWSDB_URL');
@@ -50,10 +50,22 @@ if ($conn->connect_error) {
 file_put_contents("php://stderr", "Connection was successfully established!\n");
 
 
-$sql = "SELECT fromAddress, toAddress, name, phone, subject, CAST(mailMessage AS CHAR(1000) CHARACTER SET utf8) as mailMessage FROM contactTB";
+//$sql = "SELECT fromAddress, toAddress, name, phone, subject, CAST(mailMessage AS CHAR(1000) CHARACTER SET utf8) as mailMessage FROM contactTB";
+$sql = "INSERT INTO contactTB" (fromAddress, toAddress, phone, mailmessage) values ('" + $_POST['email'] + "', 'rickyfahey@hotmail.com', '" + $_POST['phone'] + "', '" + $_POST['message'] + "')";
 
 $result = $conn->query($sql);
 
+if ($conn->query($sql) === TRUE) {
+    //echo "New record created successfully";
+    file_put_contents("php://stderr", "New record created successfully\n\n");
+} else {
+    //echo "Error: " . $sql . "<br>" . $conn->error;
+    file_put_contents("php://stderr", "Error: " + $conn->error);
+    file_put_contents("php://stderr", "\n\n");
+}
+
+
+/*
 file_put_contents("php://stderr", "Num Rows = \n");
 file_put_contents("php://stderr",  $result->num_rows);
 file_put_contents("php://stderr", "Back from Num Rows = \n");
@@ -67,8 +79,9 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
+*/
 $conn->close();
-
+return true;
 
 
 ?>
