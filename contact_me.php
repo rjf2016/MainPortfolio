@@ -62,7 +62,7 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 
-return true;
+//return true;
 
 
 ?>
