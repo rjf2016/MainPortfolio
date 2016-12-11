@@ -52,7 +52,7 @@ class Client
         // These are the supported HTTP verbs
         $this->methods = ['delete', 'get', 'patch', 'post', 'put'];
 
-        file_put_contents("php://stderr", $path);
+        //file_put_contents("php://stderr", $path);
        
     }
 
