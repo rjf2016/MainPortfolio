@@ -13,6 +13,19 @@ if(empty($_POST['name'])      ||
    }
 
 
+
+file_put_contents("php://stderr", "\n");
+file_put_contents("php://stderr", $_POST['name']);
+file_put_contents("php://stderr", "\n");
+file_put_contents("php://stderr", $_POST['email']);
+file_put_contents("php://stderr", "\n");
+file_put_contents("php://stderr", $_POST['phone']);
+file_put_contents("php://stderr", "\n");
+file_put_contents("php://stderr", $_POST['message']);
+file_put_contents("php://stderr", "\n");
+
+
+
 $url = getenv('JAWSDB_URL');
 $dbparts = parse_url($url);
 
