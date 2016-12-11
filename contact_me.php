@@ -22,18 +22,19 @@ $password = $dbparts['pass'];
 $database = ltrim($dbparts['path'],'/');
 
 
-file_put_contents("php://stderr", $database + "\n");
+file_put_contents("php://stderr", "test\n");
 
 // Create connection
 $conn = new mysqli($hostname, $username, $password, $database);
 
 // Check connection
 if ($conn->connect_error) {
+    file_put_contents("php://stderr", "Connection failed!\n");
     die("Connection failed: " . $conn->connect_error);
 }
 
  
-file_put_contents("php://stderr", "Connection was successfully established!" + "\n");
+file_put_contents("php://stderr", "Connection was successfully established!\n");
 
 
 $sql = "SELECT fromAddress, toAddress, name, phone, subject, CAST(mailmessage AS CHAR(10000) CHARACTER SET utf8) as mailMessage FROM contactTB";
