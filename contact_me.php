@@ -13,9 +13,6 @@ if(empty($_POST['name'])      ||
    }
 
 
-mysql://zaa0y67ozz5a9s2f:no2v7yz0kczwccfh@o61qijqeuqnj9chh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/xrh86esz09fgxlhr?sslca=rds-combined-ca-bundle.pem&ssl-verify-server-cert
-
-
 $url = getenv('JAWSDB_URL');
 $dbparts = parse_url($url);
 
@@ -25,6 +22,8 @@ $password = $dbparts['pass'];
 $database = ltrim($dbparts['path'],'/');
 
 
+file_put_contents("php://stderr", $database + "\n");
+
 // Create connection
 $conn = new mysqli($hostname, $username, $password, $database);
 
@@ -32,13 +31,16 @@ $conn = new mysqli($hostname, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "Connection was successfully established!";
 
+ 
+file_put_contents("php://stderr", "Connection was successfully established!" + "\n");
 
 
 $sql = "SELECT fromAddress, toAddress, name, phone, subject, CAST(mailmessage AS CHAR(10000) CHARACTER SET utf8) as mailMessage FROM contactTB";
 
 $result = $conn->query($sql);
+
+file_put_contents("php://stderr", "Num Rows = " + $result->num_rows + "\n");
 
 if ($result->num_rows > 0) {
     // output data of each row
