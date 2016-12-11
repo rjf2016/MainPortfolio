@@ -36,7 +36,7 @@ try {
 
     } catch (Exception $e) {
         //echo 'Caught exception: ',  $e->getMessage(), "\n";
-        file_put_contents("php://stderr", $e->getMessage()+"\n");
+        file_put_contents("php://stderr", "Exception: " + $e->getMessage()+"\n");
     } finally {
         file_put_contents("php://stderr", "done\n");
     }

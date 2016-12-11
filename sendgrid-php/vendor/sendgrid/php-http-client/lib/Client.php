@@ -44,8 +44,6 @@ class Client
       */
     public function __construct($host, $headers = null, $version = null, $path = null, $curlOptions = null)
     {
-        $host = "https://rickfahey.herokuapp.com";
-        
         $this->host = $host;
         $this->headers = $headers ?: [];
         $this->version = $version;
@@ -55,8 +53,9 @@ class Client
         $this->methods = ['delete', 'get', 'patch', 'post', 'put'];
 
 
-        file_put_contents("php://stderr", "contructing Client!!!\n");
-        file_put_contents("php://stderr", "host="+ $host +"\n");
+        file_put_contents("php://stderr", "\ncontructing Client!!!\n");
+        file_put_contents("php://stderr", "\nPath = " + $path + "\n");
+       
     }
 
     /**
