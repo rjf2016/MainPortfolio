@@ -49,20 +49,16 @@ if ($conn->connect_error) {
  
 file_put_contents("php://stderr", "Connection was successfully established!\n");
 
-$sql = "INSERT INTO contactTB (fromAddress, toAddress, name, phone, mailmessage) values ";
-$sql += "('" + $_POST['email'] + "',";
-$sql += "'rickyfahey@hotmail.com',";
-$sql += "'" + $_POST['name'] + "',";
-$sql += "'" + $_POST['phone'] + "',";
-$sql += "'" + $_POST['message'] + "')";
+$sql = "INSERT INTO contactTB (fromAddress, toAddress, name, phone, mailmessage) values ('" + $_POST['email'] + "', "'rickyfahey@hotmail.com', "'" + $_POST['name'] + "', '" + $_POST['phone'] + "', '" + $_POST['message'] + "')";
 
 file_put_contents("php://stderr", $sql);
+file_put_contents("php://stderr", "\n\n");
 
 $result = $conn->query($sql);
 
 if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";
-    file_put_contents("php://stderr", "New record created successfully\n\n");
+    file_put_contents("php://stderr", "New record created successfully");
 } else {
     //echo "Error: " . $sql . "<br>" . $conn->error;
     file_put_contents("php://stderr", "Error: " + $conn->error);
