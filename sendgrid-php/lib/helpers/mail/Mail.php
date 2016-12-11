@@ -928,7 +928,7 @@ class Mail implements \JsonSerializable
 
             file_put_contents("php://stderr", "constructing mail object!!!\n");
         }
-
+file_put_contents("php://stderr", "constructing mail object 2!!!\n");
     }
 
     public function setFrom($email)

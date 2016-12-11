@@ -54,6 +54,7 @@ class Client
 
 
         file_put_contents("php://stderr", "contructing Client!!!\n");
+        file_put_contents("php://stderr", "host="+ $host +"\n");
     }
 
     /**
