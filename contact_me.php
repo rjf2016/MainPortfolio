@@ -49,7 +49,7 @@ if ($conn->connect_error) {
 
 $sql = "INSERT INTO contactTB (fromAddress, toAddress, name, phone, mailmessage) values ('" . $_POST['email'] . "', 'rickyfahey@hotmail.com', '" . $_POST['name'] . "', '" . $_POST['phone'] . "', '" . $_POST['message'] . "')";
 
-$result = $conn->query($sql);
+//$result = $conn->query($sql);
 
 if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";
