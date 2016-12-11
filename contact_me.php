@@ -49,7 +49,7 @@ if ($conn->connect_error) {
  
 file_put_contents("php://stderr", "Connection was successfully established!\n");
 
-$sql = "INSERT INTO contactTB (fromAddress, toAddress, name, phone, mailmessage) values ('" + $_POST['email'] + "', "'rickyfahey@hotmail.com', "'" + $_POST['name'] + "', '" + $_POST['phone'] + "', '" + $_POST['message'] + "')";
+$sql = "INSERT INTO contactTB (fromAddress, toAddress, name, phone, mailmessage) values ('" + $_POST['email'] + "', 'rickyfahey@hotmail.com', '" + $_POST['name'] + "', '" + $_POST['phone'] + "', '" + $_POST['message'] + "')";
 
 file_put_contents("php://stderr", $sql);
 file_put_contents("php://stderr", "\n\n");
